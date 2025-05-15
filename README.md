@@ -1,4 +1,4 @@
-# PRO_REST_API
+# Protein Ontology RESTful API
 
 This repository is for Protein Ontology RESTful API powered by its SPARQL endpoint.
 ## Protein Ontology Linked Open Data
