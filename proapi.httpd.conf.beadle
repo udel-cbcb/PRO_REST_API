@@ -1,0 +1,17 @@
+##############################
+#  PRO API                   #
+##############################
+
+WSGIScriptAlias /PRO_API/V1 /var/www/html/proapi/proapi/wsgi.py
+WSGIDaemonProcess PRO_API python-home=/var/www/html/proapi/venc python-path=/var/www/html/proapi
+
+<Location /PRO_API>
+    WSGIProcessGroup PRO_API
+</Location>
+
+<Directory /var/www/html/proapi/proapi>
+    Require all granted
+    <Files wsgi.py>
+        Require all granted
+    </Files>
+</Directory>

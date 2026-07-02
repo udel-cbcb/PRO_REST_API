@@ -1956,7 +1956,7 @@ class SparqlSearch:
                 query += "      ?PRO_term oboInOwl:id ?PRO_ID .\n"
                 query += "      ?PRO_term  pr_extra:allFields ?fieldValue . \n"
                 #query += "      ?fieldValue bif:contains \"'"+value+"'\"\n"
-		query += "      FILTER(CONTAINS(ucase(?fieldValue), '" + value.upper() + "'))\n"
+                query += "      FILTER(CONTAINS(ucase(?fieldValue), '" + value.upper() + "'))\n"
                 query += "}\n"
                 #searchField = searchParameter.searchField.upper()
                 # query += "{\n"
@@ -2693,7 +2693,7 @@ class SparqlSearch:
             query += "      ?PRO_term oboInOwl:id ?PRO_ID .\n"
             query += "      ?PRO_term  pr_extra:hasRelationshipWith ?AnyRelationship .\n"
             #query += "      FILTER(bif:contains(?AnyRelationship, '\"" + value + "\"'))\n"
-	    query += "      FILTER(CONTAINS(ucase(?AnyRelationship), '" + value.upper() + "'))\n"
+            query += "      FILTER(CONTAINS(ucase(?AnyRelationship), '" + value.upper() + "'))\n"
             query += "}\n"
         #print(query)
         return query, searchParameter

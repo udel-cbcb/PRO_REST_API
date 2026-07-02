@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from . import views
 
+app_name = 'api_v1'
 
 urlpatterns = [
     url(r'^$', views.proSearch, name = "proSearch"),
