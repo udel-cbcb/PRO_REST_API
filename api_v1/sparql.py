@@ -1166,7 +1166,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout" : 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1349,7 +1349,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1397,7 +1397,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1445,7 +1445,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1492,7 +1492,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1536,7 +1536,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code
@@ -1594,7 +1594,7 @@ class SparqlSearch:
         url = self.conf.cfg['sparql_endpoint']
         params = {'query': query, "format": "text/tab-separated-values", "timeout": 0, "debug": "on"}
         response = requests.post(url, data=params)
-        error = Error
+        error = Error()
         result = []
         if (response.status_code != 200):
             error.code = response.status_code

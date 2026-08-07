@@ -332,7 +332,8 @@ def searchAndRenderResponse(searchParameter, restriction):
         return Response(serializer.data)
     else:
         proTerms, error = sparqlSearch.proSearch(searchParameter, restriction)
-        print("proTerms[0]", proTerms[0])
+        if proTerms:
+            print("proTerms[0]", proTerms[0])
         if error == None:
             serializer = PROTermSerializer(proTerms, many=True)
         else:
@@ -361,111 +362,53 @@ def getSearchParameter(request):
         searchParameter.showAnnotation = True
     if request.GET.get('showAnyRelationship') == 'true':
         searchParameter.showAnyRelationship = True
-    else:
-        searchParameter.showAnyRelationship = False
     if request.GET.get('showCategory') == 'true':
         searchParameter.showCategory = True
-    else:
-        searchParameter.showCategory = False
     if request.GET.get('showChild') == 'true':
         searchParameter.showChild = True
-    else:
-        searchParameter.showChild = False
     if request.GET.get('showComment') == 'true':
         searchParameter.showComment = True
-    else:
-        searchParameter.showComment = False
     if request.GET.get('showEcoCycID') == 'true':
         searchParameter.showEcoCycID = True
-    else:
-        searchParameter.showEcoCycID = False
     if request.GET.get('showGeneName') == 'true':
         searchParameter.showGeneName = True
-    else:
-        searchParameter.showGeneName = False
     if request.GET.get('showHGNCID') == 'true':
         searchParameter.showHGNCID = True
-    else:
-        searchParameter.showHGNCID = False
     if request.GET.get('showMGIID') == 'true':
         searchParameter.showMGIID = True
-    else:
-        searchParameter.showMGIID = False
     if request.GET.get('showOrthoIsoform') == 'true':
         searchParameter.showOrthoIsoform = True
-    else:
-        searchParameter.showOrthoIsoform = False
-    if request.GET.get('showOrthoModifiedForm') == 'true':
-        searchParameter.showOrthoModifiedForm = True
-    else:
-        searchParameter.showOrthoModifiedForm = False
+    if request.GET.get('showOrthoModform') == 'true':
+        searchParameter.showOrthoModform = True
     if request.GET.get('showPANTHERID') == 'true':
         searchParameter.showPANTHERID = True
-    else:
-        searchParameter.showPANTHERID = False
     if request.GET.get('showPIRSFID') == 'true':
         searchParameter.showPIRSFID = True
-    else:
-        searchParameter.showPIRSFID = False
     if request.GET.get('showPMID') == 'true':
         searchParameter.showPMID = True
-    else:
-        searchParameter.showPMID = False
     if request.GET.get('showPROName') == 'true':
         searchParameter.showPROName = True
-    else:
-        searchParameter.showPROName = False
     if request.GET.get('showPRONamespace') == 'true':
         searchParameter.showPRONamespace = True
-    else:
-        searchParameter.showPRONamespace = False
     if request.GET.get('showPROTermDefinition') == 'true':
         searchParameter.showPROTermDefinition = True
-    else:
-        searchParameter.showPROTermDefinition = False
     if request.GET.get('showParent') == 'true':
         searchParameter.showParent = True
-    else:
-        searchParameter.showParent = False
     if request.GET.get('showReactomeID') == 'true':
         searchParameter.showReactomeID = True
-    else:
-        searchParameter.showReactomeID = False
     if request.GET.get('showSynonym') == 'true':
         searchParameter.showSynonym = True
-    else:
-        searchParameter.showSynonym = False
     if request.GET.get('showTaxonID') == 'true':
         searchParameter.showTaxonID = True
-    else:
-        searchParameter.showTaxonID = False
     if request.GET.get('showUniProtKBID') == 'true':
         searchParameter.showUniProtKBID = True
-    else:
-        searchParameter.showUniProtKBID = False
     if request.GET.get('Offset'):
         searchParameter.offset = request.GET.get('Offset')
     if request.GET.get('Limit'):
         searchParameter.limit = request.GET.get('Limit')
     #print(searchParameter)
-    if searchParameter.searchField == "Interaction_with":
+    if searchParameter.searchField in ("Interaction_with", "Modifier", "Ontology_ID", "Ontology_term", "Taxon_ID"):
         searchParameter.showAnnotation = True
-    else:
-        searchParameter.showAnnotation = False
-    if searchParameter.searchField == "Modifier":
-        searchParameter.showAnnotation = True
-    else:
-        searchParameter.showAnnotation = False
-    if searchParameter.searchField == "Ontology_ID":
-        searchParameter.showAnnotation = True
-    else:
-        searchParameter.showAnnotation = False
-    if searchParameter.searchField == "Ontology_term":
-        searchParameter.showAnnotation = True
-    else:
-        searchParameter.showAnnotation = False
-    if searchParameter.searchField == "Taxon_ID":
-       searchParameter.showAnnotation = True
 
     # print(request)
     # if request.type == "text/turtle":
