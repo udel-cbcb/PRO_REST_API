@@ -1,4 +1,3 @@
-from django.utils.encoding import smart_text
 from rest_framework import renderers
 from .serializers import PAFSerialzier
 
